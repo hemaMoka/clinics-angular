@@ -1,0 +1,65 @@
+<section dir="rtl" class="py-5">
+  <div class="container">
+      <div  class="row g-5 justify-content-between">
+        <div class="col-md-6 bg-white p-4 rounded-4">
+          <div class="d-flex align-items-center pb-4">
+            <img [src]="clinc.imag_path" class="rounded-circle ms-4" width="150" height="150" alt="">
+            <h3 class="color-main">{{clinc.clinic_name}}</h3>
+          </div>
+          <div class="pb-4">
+              <h4 >عدد ساعات العمل : <span class="color-main">{{clinc.work_hours}}</span></h4>
+          </div>
+          <div class="pb-4">
+            <h5>  عنوان العيادة: <span class="color-main">{{clinc.address}}</span></h5>
+          </div>
+          <div class="pb-5">
+            <h6 class="h3">التخصصات المتاحة :</h6>
+            <div class="d-flex py-3">
+              <div *ngFor="let specail of clinc.specailists" class="specail">{{specail}}</div>
+            </div>
+          </div>
+          <div>
+            <h6>ارقام الهواتف للتواصل :</h6>
+            <ul>
+              <li *ngFor="let phone of clinc.phones">{{phone}}</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="bg-white rounded-4">
+            <div class="text-center  head">
+              <p class="rounded-top-4 p-1 text-white fw-bolder">ادخل معلوماتك</p>
+            </div>
+            <form (ngSubmit)="handleBook(book)" [formGroup]="book" class="p-3">
+              <div class="form-group mb-4">
+                <label for="" class="fw-bold mb-2">اسم المريض <span class="text-danger">*</span></label>
+                <input formControlName="name" type="text" class="form-control">
+                <div *ngIf="book.get('name')?.errors&&book.get('name')?.touched">
+                  <p *ngIf="book.get('name')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">Name Is Requird</p>
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                <label for="" class="fw-bold mb-2"> رقم الهاتف <span class="text-danger">*</span></label>
+                <input formControlName="phone" type="tel" class="form-control">
+                <div *ngIf="book.get('phone')?.errors&& book.get('phone')?.touched">
+                  <p *ngIf="book.get('phone')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">Phone number Is
+                    Requird</p>
+                  <p *ngIf="book.get('phone')?.getError('pattern')" class="text-danger fw-bolder p-1 mb-0 mt-1">please enter
+                    egyption
+                    number</p>
+                </div>
+              </div>
+              <div class="form-group mb-4">
+                <label for="" class="fw-bold mb-2"> العيادة <span class="text-danger">*</span></label>
+                <select  name="" id="" class="form-control" formControlName="clinic" >
+                  <option value="" disabled selected>-- اختر العيادة --</option>
+                  <option *ngFor="let specail of clinc.specailists" value="">{{specail}}</option>
+                </select>
+              </div>
+              <button class="btn btn-danger form-control fw-bolder">BOOK</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

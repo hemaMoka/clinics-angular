@@ -1,0 +1,32 @@
+<section style="background-image: url(assets/images/search-header-background-en.jpg);" class="hero py-5 ">
+  <div class="container">
+    <div class=" ">
+      <div class="w-50">
+        <h1 class="h3">Book with The best Doctor</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rerum qui, atque animi veritatis fuga
+          suscipit asperiores ab facilis, temporibus obcaecati? Veritatis sequi ut ullam?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-5">
+  <div class="container w-75 position-relative">
+    <i class="fa-solid fa-magnifying-glass search position-absolute"></i>
+    <input class="form-control px-5 fw-bold" type="search">
+  </div>
+</section>
+
+<section class="pb-5" >
+  <div class="container bg-white p-5 rounded-4 w-75">
+    <div class="row justify-content-between">
+      <div *ngFor="let clinc of clincs" class="col-md-5 p-3">
+        <img width="100" height="100" class="rounded-circle me-3" [src]="clinc?.imag_path" alt="">
+        <a [routerLink]="['/spacific-clinc',clinc.id]" class="main-color text-decoration-none" >{{clinc?.clinic_name}}</a>
+      </div>
+    </div>
+  </div>
+</section>

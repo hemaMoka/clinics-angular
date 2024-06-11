@@ -1,0 +1,34 @@
+<section class="py-5">
+  <div class="container  mx-auto">
+    <div class="card-login bg-white rounded-bottom-3">
+      <div class="head rounded-top-3">
+        <h1 class="h5 fw-bolder p-1">Login</h1>
+      </div>
+      <p *ngIf="messageError" class="text-danger fw-bolder p-1 text-center m-0"> {{messageError}}</p>
+        <form (ngSubmit)="handleLogin(login)" [formGroup]="login" class="p-3">
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold mb-2">E-mail</label>
+            <input (input)="handleChange()" formControlName="email" type="email"
+              class="form-control " placeholder="Example@gmail.com">
+            <div *ngIf="login.get('email')?.errors&&login.get('email')?.touched">
+              <p *ngIf="login.get('email')?.getError('required')" class="text-danger p-1 m-0 mt-2">Email is Required</p>
+              <p *ngIf="login.get('email')?.getError('email')" class="text-danger p-1 m-0 mt-2">Email is inVaild</p>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <label for="" class="fw-bold mb-2">Password</label>
+            <input (input)="handleChange()" formControlName="password" type="password"
+              class="form-control " placeholder="************">
+            <div *ngIf="login.get('password')?.errors&&login.get('password')?.touched">
+              <p *ngIf="login.get('password')?.getError('required')" class="text-danger p-1 m-0 mt-2">password is
+                required</p>
+            </div>
+          </div>
+          <button [disabled]="login.invalid" class="btn btn-danger fw-bold w-100">Login Now</button>
+        </form>
+        <div class="d-flex justify-content-center pb-3">
+          <a class="" routerLink="/register">Don't Have Account</a>
+        </div>
+    </div>
+  </div>
+</section>

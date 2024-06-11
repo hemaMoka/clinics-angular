@@ -1,0 +1,29 @@
+.navbar
+{
+  background-color: #0070cd;
+}
+
+.nav-link{
+  color: #F6F1EE !important;
+  font-weight: 500;
+}
+
+.navbar-brand{
+  font-family: 'Acme', sans-serif;
+  font-size: 28px;
+  font-weight:900;
+  color: white;
+  span{
+    color: #EC8F5E;
+  }
+}
+
+.active
+{
+  background-color: #EC8F5E;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}

@@ -1,0 +1,48 @@
+<section class="py-5">
+  <div class="container  mx-auto">
+    <div class="card-login bg-white rounded-bottom-3">
+      <div class="head rounded-top-3">
+        <h1 class="h5 fw-bolder p-1">SignUp</h1>
+      </div>
+      <form (ngSubmit)="handleRegister(register)" [formGroup]="register" class="p-3 ">
+        <div class="form-group mb-4">
+          <label for="" class="fw-bold mb-2">Name <span class="text-danger">*</span></label>
+          <input formControlName="name" type="text" class="form-control">
+          <div *ngIf="register.get('name')?.errors&&register.get('name')?.touched">
+            <p *ngIf="register.get('name')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">Name Is Requird</p>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <label for="" class="fw-bold mb-2">E_mail <span class="text-danger">*</span></label>
+          <input formControlName="email" type="email" class="form-control">
+          <div *ngIf="register.get('email')?.errors&& register.get('email')?.touched">
+            <p *ngIf="register.get('email')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">E_mail Is Requird</p>
+            <p *ngIf="register.get('email')?.getError('email')" class="text-danger fw-bolder p-1 mb-0 mt-1">E_mail Not Vaild</p>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <label for="" class="fw-bold mb-2">Phone <span class="text-danger">*</span></label>
+          <input formControlName="phone" type="tel" class="form-control">
+          <div *ngIf="register.get('phone')?.errors&& register.get('phone')?.touched">
+            <p *ngIf="register.get('phone')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">Phone number Is
+              Requird</p>
+            <p *ngIf="register.get('phone')?.getError('pattern')" class="text-danger fw-bolder p-1 mb-0 mt-1">please enter egyption
+              number</p>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <label for="" class="fw-bold mb-2">Password <span class="text-danger">*</span></label>
+          <input formControlName="password" type="password" class="form-control">
+          <div *ngIf="register.get('password')?.errors&& register.get('password')?.touched">
+            <p *ngIf="register.get('password')?.getError('required')" class="text-danger fw-bolder p-1 mb-0 mt-1">E_mail Is Requird
+            </p>
+          </div>
+        </div>
+        <button [disabled]="register.invalid" class="btn btn-danger fw-bold w-100">JOIN NOW</button>
+      </form>
+      <div class="d-flex justify-content-center pb-3">
+        <a class="" routerLink="/login">Already Have Account</a>
+      </div>
+    </div>
+  </div>
+</section>

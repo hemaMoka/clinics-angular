@@ -1,0 +1,43 @@
+#carouselExampleAutoplaying{
+  height: 85vh;
+}
+
+.text-custom{
+  color: #EC8F5E;
+}
+
+.pharmacy{
+  background-color: #3176c1 ;
+  color: white;
+  .btn{
+    background-color: white ;
+    font-weight: 600;
+    color: #3176c1;
+  }
+}
+
+.tel-container{
+  .tel{
+    img{
+      border-radius: 5px 0 0 5px;
+      -webkit-border-radius: 5px 0 0 5px;
+      -moz-border-radius: 5px 0 0 5px;
+      -ms-border-radius: 5px 0 0 5px;
+      -o-border-radius: 5px 0 0 5px;
+    }
+  }
+  .content{
+    border-radius: 5px ;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px ;
+    -ms-border-radius: 5px ;
+    -o-border-radius: 5px ;
+  }
+}
+
+.info{
+  height: 280px;
+  div{
+    height: 100%;
+  }
+}
